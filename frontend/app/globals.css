@@ -132,3 +132,13 @@
   .nav-link.active { @apply text-white; }
   .nav-link.active::after { @apply w-full; }
 }
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
