@@ -1,3 +1,4 @@
+const Template = require('../models/Template');
 const User = require('../models/User');
 const Project = require('../models/Project');
 
@@ -126,4 +127,12 @@ const deleteUser = async (req, res, next) => {
   }
 };
 
-module.exports = { getStats, getAllUsers, getAllProjects, updateProjectStatus, toggleUserStatus, deleteUser };
+
+module.exports = {
+  getStats,
+  getAllUsers,
+  getAllProjects,
+  updateProjectStatus,
+  toggleUserStatus,
+  deleteUser,
+};

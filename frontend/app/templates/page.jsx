@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Star, ExternalLink, Zap, Filter, X, Download, Crown } from 'lucide-react';
+import { Search, Star, ExternalLink, Zap, Filter, X, Crown } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import api from '../../services/api';
@@ -123,7 +123,6 @@ function TemplateCard({ template, onUse }) {
 
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3 text-xs text-gray-500">
-          <span className="flex items-center gap-1"><Download className="w-3 h-3" />{template.downloads?.toLocaleString()}</span>
           <span>{template.pages?.length} pages</span>
         </div>
         <span className={`text-sm font-bold ${template.isPremium ? 'text-amber-400' : 'text-emerald-400'}`}>

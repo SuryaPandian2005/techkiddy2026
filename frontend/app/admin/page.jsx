@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Users, FolderOpen, TrendingUp, Clock, CheckCircle, LayoutTemplate,
   Search, Trash2, Shield, RefreshCw, Ban, BarChart3, Loader,
-  AlertTriangle, Star
+  AlertTriangle, Star, Plus
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import useAuthStore from '../../store/authStore';
@@ -134,6 +134,7 @@ export default function AdminPage() {
             { id: 'overview', label: 'Overview', icon: BarChart3 },
             { id: 'users', label: 'Users', icon: Users },
             { id: 'projects', label: 'Projects', icon: FolderOpen },
+            { id: 'templates', label: 'Templates', icon: LayoutTemplate },
           ].map(({ id, label, icon: Icon }) => (
             <button
               key={id}
@@ -155,7 +156,12 @@ export default function AdminPage() {
               <div className="space-y-8">
                 {loading ? (
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                    {[...Array(6)].map(i => <div key={i} className="skeleton h-28 rounded-2xl" />)}
+                    {[...Array(6)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="skeleton h-28 rounded-2xl"
+                      />
+                    ))}
                   </div>
                 ) : (
                   <>
@@ -348,6 +354,30 @@ export default function AdminPage() {
                 )}
               </div>
             )}
+            {/* TEMPLATES */}
+    {activeTab === 'templates' && (
+      <div className="glass-card text-center py-16">
+
+        <LayoutTemplate className="w-14 h-14 text-indigo-400 mx-auto mb-5" />
+
+        <h2 className="text-2xl font-bold text-white mb-3">
+          Upload Project Showcase
+        </h2>
+
+        <p className="text-gray-400 mb-8 max-w-lg mx-auto">
+          Add your latest website projects and showcase them publicly on the templates page.
+        </p>
+
+        <button
+          onClick={() => router.push('/admin/templates')}
+          className="btn-primary flex items-center gap-2 mx-auto text-white"
+        >
+          <Plus className="w-4 h-4" />
+          Open Upload Page
+        </button>
+
+      </div>
+    )}
           </motion.div>
         </AnimatePresence>
       </div>

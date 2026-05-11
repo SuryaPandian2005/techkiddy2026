@@ -1,3 +1,5 @@
+const User = require('../models/User');
+const Project = require('../models/Project');
 const Template = require('../models/Template');
 
 const SEED_TEMPLATES = [
@@ -53,11 +55,63 @@ const getTemplates = async (req, res, next) => {
 
 const createTemplate = async (req, res, next) => {
   try {
-    const template = await Template.create({ ...req.body, createdBy: req.user._id });
-    res.status(201).json({ success: true, template });
+    const template = await Template.create({
+      ...req.body,
+      createdBy: req.user._id,
+    });
+
+    res.status(201).json({
+      success: true,
+      message: 'Project showcase uploaded successfully.',
+      template,
+    });
   } catch (error) {
     next(error);
   }
 };
 
-module.exports = { seedTemplates, getTemplates, createTemplate };
+const getAllTemplates = async (req, res, next) => {
+  try {
+    const templates = await Template.find({
+      isActive: true,
+    }).sort({ createdAt: -1 });
+
+    res.json({
+      success: true,
+      templates,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+const deleteTemplate = async (req, res, next) => {
+  try {
+
+    const template = await Template.findById(req.params.id);
+
+    if (!template) {
+      return res.status(404).json({
+        success: false,
+        message: 'Template not found',
+      });
+    }
+
+    await Template.findByIdAndDelete(req.params.id);
+
+    res.json({
+      success: true,
+      message: 'Template deleted successfully',
+    });
+
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = {
+  seedTemplates,
+  getTemplates,
+  createTemplate,
+  getAllTemplates,
+  deleteTemplate,
+};
