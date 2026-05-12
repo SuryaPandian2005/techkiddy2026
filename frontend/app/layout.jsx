@@ -7,45 +7,71 @@ import Footer from '../components/layout/Footer';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata = {
-  title: "TechKidyy | Modern Website Development",
+  metadataBase: new URL("https://techkidyy-sigma.vercel.app"),
+
+  title: {
+    default: "TechKidyy | Modern Website Development",
+    template: "%s | TechKidyy",
+  },
 
   description:
-    "We design and develop high-quality websites for businesses, startups, portfolios, and online stores with modern UI/UX and responsive performance.",
+    "TechKidyy designs and develops high-quality websites, AI applications, dashboards, portfolios, ecommerce platforms, and responsive digital solutions for startups, businesses, and creators.",
 
   keywords: [
     "TechKidyy",
-    "website builder",
+    "website development",
     "AI website",
     "web development",
     "portfolio website",
+    "Next.js developer",
+    "React developer",
+    "modern websites",
+    "responsive websites",
+    "UI UX design",
+    "dashboard development",
     "ecommerce website",
-    "SaaS platform",
-    "React website",
-    "Next.js development",
+    "frontend developer",
+    "digital solutions",
   ],
+  
+  verification: { google: "Gc8LlbP0tWas1dSephZmbTPSYnzLSGnG0vgpXNf6nd4", },
 
-  icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+  authors: [{ name: "TechKidyy" }],
+
+  creator: "TechKidyy",
+
+  publisher: "TechKidyy",
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 
   openGraph: {
-    title: "TechKidyy — Professional Website Development Platform",
+    title: "TechKidyy | Modern Website Development",
 
     description:
-      "Create stunning, modern, and responsive websites for businesses, startups, portfolios, and online stores.",
+      "Modern websites, AI-powered applications, dashboards, ecommerce platforms, and professional digital solutions.",
 
-    url: "https://techkidyy.com",
+    url: "https://techkidyy-sigma.vercel.app",
 
     siteName: "TechKidyy",
 
     images: [
       {
         url: "/logo.png",
-        width: 512,
-        height: 512,
-        alt: "TechKidyy Logo",
+        width: 1200,
+        height: 630,
+        alt: "TechKidyy",
       },
     ],
 
@@ -56,11 +82,18 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "TechKidyy",
+
+    title: "TechKidyy | Modern Website Development",
+
     description:
-      "Modern website development and AI-powered digital solutions.",
+      "Modern websites and AI-powered digital solutions for startups and businesses.",
+
     images: ["/logo.png"],
+
+    creator: "@techkidyy",
   },
+
+  category: "technology",
 };
 
 export default function RootLayout({ children }) {
