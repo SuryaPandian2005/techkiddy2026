@@ -46,7 +46,7 @@ export const metadata = {
     "professional portfolio website",
   ],
   
-  verification: { google: "Gc8LlbP0tWas1dSephZmbTPSYnzLSGnG0vgpXNf6nd4", },
+  verification: { google: "PQSj2Q0Ksrm-i36rbf55uKAV3sfg7ceks_VwXRau67k", },
 
   authors: [{ name: "TechKidyy" }],
 
