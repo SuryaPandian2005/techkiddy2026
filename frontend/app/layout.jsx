@@ -117,6 +117,24 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
       <body>
+          {/* Cookie Consent Banner */}
+          <script
+            id="cookieyes"
+            type="text/javascript"
+            src="https://cdn-cookieyes.com/client_data/59729b3df4860fa00bf6150a/script.js"
+          ></script>
+
+          {/* Organization Schema */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "TechKidyy",
+              }),
+            }}
+           />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
